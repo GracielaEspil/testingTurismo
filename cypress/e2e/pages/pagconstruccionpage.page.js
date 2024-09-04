@@ -1,6 +1,6 @@
 export class PagCostruccion{
     logoWas(){
-        return cy.get("washatpp")
+        return cy.get(".washatpp")
     }
     image(){
         return cy.get("construction-image")
