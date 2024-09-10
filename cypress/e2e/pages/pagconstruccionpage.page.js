@@ -1,17 +1,18 @@
 export class PagCostruccion{
     logoWas(){
-        return cy.get(".washatpp")
+        return cy.get(".whatsapp")
     }
     image(){
-        return cy.get("construction-image")
+        return cy.get("img[alt='Página en Construcción']")
     }
     video(){
-        return cy.get("video-background")
+        return cy.get(".video-background")
     }
-    textoT(){
-        return cy.get("h1-contains(text)")
+
+    contextoT(){
+        return cy.get(" div.content h1 ")
     }
     textoE(){
-        return cy.get("p[contains(text()")
+        return cy.get("div.content p")
     }
 }
