@@ -7,7 +7,7 @@ describe('pagina en costruccion', () => {
     beforeEach(()=>{
         cy.visit(Cypress.env('baseUrl'))
     })
-    it('pagina  en construccion- vista', { tags: 't1' }, () => {
+    it('pagina  en construccion- vista', { tags: 'TT-45' }, () => {
         pagCostruccion.logoWas().should("be.visible")
         pagCostruccion.image().should("be.visible")
         pagCostruccion.video().should("be.visible")
