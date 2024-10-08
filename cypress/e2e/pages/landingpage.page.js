@@ -3,7 +3,7 @@ export class Landingpage {
         return cy.get(".whatsapp")
     }
 
-    CarrouselTapalque(){
+    carrouselTapalque(){
         return cy.get(".Carrousel_active__Mg915")  
     }
 
