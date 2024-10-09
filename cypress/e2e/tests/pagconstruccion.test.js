@@ -8,11 +8,11 @@ describe('pagina en costruccion', () => {
         cy.visit(Cypress.env('baseUrl'))
     })
     it('pagina  en construccion- vista', { tags: 'TT-45' }, () => {
-        pagCostruccion.logoWas().should("be.visible")
-        pagCostruccion.image().should("be.visible")
-        pagCostruccion.video().should("be.visible")
-        pagCostruccion.contextoT().should("be.visible")
-        pagCostruccion.textoE().should("be.visible")
+        pagCostruccion.logo().should("be.visible")
+        pagCostruccion.fondo().should("be.visible")
+        pagCostruccion.Titulo().should("be.visible")
+        pagCostruccion.textoDes().should("be.visible")
+        pagCostruccion.FooterAzul().should("be.visible")
 
 
             
