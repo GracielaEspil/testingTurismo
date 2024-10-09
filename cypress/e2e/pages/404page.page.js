@@ -1,26 +1,9 @@
 export class Pag404page{
-    logoImage(){
-        return cy.get("img[alt='Logo Turismo']")
-    }
-
-    home(){
-        return cy.get("li:nth-child(1) a:nth-child(1)") 
-    }
     
-    eventos(){
-        return cy.get("a[href='/eventos']") 
-    }
 
-    gastronimia(){
-        return cy.get("a[href='/gastronomia']") 
-    }
 
-    hospedaje(){
-        return cy.get("a[href='/hospedaje']") 
-    }
-
-    imagenFondo(){
-        return cy.get("img[alt='Página no encontrada']")
+    textoerror(){
+        return cy.get("h1[class='text-[#E65829] font-arima text-4xl font-bold leading-[65px] mb-4 text-center relative z-10']")
     }
 
     btVolver(){
