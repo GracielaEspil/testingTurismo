@@ -11,7 +11,7 @@ describe('Landingpage', () => {
     it('Pagina landing page' , { tags: 't1' }, () => {
         cy.checkingnav()
         cy.checkingfooter()
-        cy.chekingfiiterazuk()
+        cy.chekingfooterazul()
         landingpage.logoWs().should("be.visible")
         landingpage.imgDescubriTapalque().should("be.visible")
         landingpage.imgAzulOndas().should("be.visible")

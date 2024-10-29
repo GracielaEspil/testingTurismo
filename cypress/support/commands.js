@@ -23,9 +23,6 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-import FooterPage from "../e2e/pages/footer.page"
-import FooterAzulPage from "../e2e/pages/footerAzul.page"
-import NavbarPage from "../e2e/pages/navbar.page"
 
 
 const navbarPage = new NavbarPage
