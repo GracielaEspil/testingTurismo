@@ -48,9 +48,8 @@ export class Pag404page{
         return cy.get("body > div:nth-child(13) > div:nth-child(4) > div:nth-child(4) > a:nth-child(1) > div:nth-child(1)")
     }
     
-
-   
-
-  
+    whatsapp(){
+        return cy.get("img[alt='Whatsapp Turismo Tapalqué']")
+    }
 
 }

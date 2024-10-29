@@ -25,6 +25,7 @@ describe('Pag404page', () => {
         page404.btnAtractivos().should("be.visible")
         page404.btnPanel().should("be.visible")
         page404.btnRecupContra().should("be.visible")
+        page404.whatsapp().should("be.visible")
 
     });
 
