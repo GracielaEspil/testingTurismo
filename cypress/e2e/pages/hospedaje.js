@@ -1,15 +1,17 @@
-export class hospedaje{
-    banner(){
+export class Hospedaje {
+    banner() {
         return cy.get("#bannerhistoria")
     }
-    text(){
-        return cy.get(".<p>")
-    }
-    imgCar(){
-        return cy.get("img[alt='Galpon de Cartas 2']")
-    }
-    logWa(){
-        return cy.get("img[alt='Whatsapp Turismo Tapalqué']")
+    
+    texto() {
+        return cy.get("p") // Ajustado a un selector de párrafo genérico
     }
     
+    imgCar() {
+        return cy.get("img[alt='Galpon de Cartas 2']")
+    }
+    
+    logoWa() {
+        return cy.get("img[alt='Whatsapp Turismo Tapalqué']")
+    }
 }
