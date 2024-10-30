@@ -4,7 +4,7 @@ export default class NavbarPage {
     }
 
     acerca(){
-        return cy.get("#linkacerca") 
+        return cy.get("li[class='relative w-full md:w-[140px] lg:w-full'] span[class='class-item-menu']") 
     }
     
     hospedaje(){
@@ -16,7 +16,7 @@ export default class NavbarPage {
     }
 
     turismorural(){
-        return cy.get("#linkturismorural") 
+        return cy.get("li[class='relative w-full md:w-auto'] span[class='class-item-menu']") 
     }
 
     atractivos(){

@@ -5,13 +5,13 @@ import { Landingpage } from "../pages/landingpage.page";
 describe('Landingpage', () => {
     const landingpage = new Landingpage()
     beforeEach(() =>{
-        cy.log(Cypress.env('baseUrl') + '/g')
-        cy.visit(Cypress.env('baseUrl') + '/g', { failOnStatusCode: false });
+        cy.log(Cypress.env('baseUrl'))
+        cy.visit(Cypress.env('baseUrl'), { failOnStatusCode: false });
     })
     it('Pagina landing page' , { tags: 't1' }, () => {
         cy.checkingnav()
         cy.checkingfooter()
-        cy.chekingfooterazul()
+        cy.checkingfooterazul()
         landingpage.logoWs().should("be.visible")
         landingpage.imgDescubriTapalque().should("be.visible")
         landingpage.imgAzulOndas().should("be.visible")
