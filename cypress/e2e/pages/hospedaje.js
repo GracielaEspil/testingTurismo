@@ -4,7 +4,7 @@ export class Hospedaje {
     }
     
     texto() {
-        return cy.get("p") // Ajustado a un selector de párrafo genérico
+        return cy.get("p") 
     }
     
     imgCar() {
