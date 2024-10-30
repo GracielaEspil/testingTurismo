@@ -1,17 +1,17 @@
 /// <reference types="cypress" />
-import { Hospedaje } from '../page/Hospedaje';
+import { Hospedaje } from "./pages/Hospedaje";
 
 describe('Hospedaje', () => {
-    const Hospedaje = new Hospedaje()
+    const hospedaje = new Hospedaje()  // Cambié a minúscula para evitar conflicto
     
     beforeEach(() => {
         cy.visit(Cypress.env('baseUrl'))
     })
     
     it('Hospedaje - Vista', { tags: 't1' }, () => {
-        Hospedaje.logoWa().should("be.visible")
-        Hospedaje.imgCar().should("be.visible")
-        Hospedaje.banner().should("be.visible")
-        Hospedaje.texto().should("be.visible")
+        hospedaje.logoWa().should("be.visible")
+        hospedaje.imgCar().should("be.visible")
+        hospedaje.banner().should("be.visible")
+        hospedaje.texto().should("be.visible")
     });
 });
