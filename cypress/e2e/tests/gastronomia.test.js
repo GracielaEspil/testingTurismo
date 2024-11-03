@@ -1,42 +1,46 @@
-import { Gastronomia } from '../../page/gastronomiapage/page';
+/// <reference types="cypress" />
 
-describe('Gastronomia', () => {
-    const gastronomiaPage = new Gastronomia();
+import Gastronomia from '..pages/gastronomiapage.page'
 
-    beforeEach(() => {
-        cy.visit(`${Cypress.env('baseUrl')}/g`, { failOnStatusCode: false });
-        gastronomiaPage.waitForPageLoad();
-    });
+describe('Pruebas de la Página de Gastronomía', () => {
+  const gastronomia = new Gastronomia()
 
-    it('Verifica la visibilidad del banner', () => {
-        gastronomiaPage.banner().should('be.visible');
-    });
+  beforeEach(() => {
+    gastronomia.visitar()
+    gastronomia.esperarCargaPagina()
+  })
 
-    it('Verifica que el texto principal esté visible', () => {
-        gastronomiaPage.texto().should('be.visible');
-    });
+  it('debería mostrar el banner principal', () => {
+    gastronomia.elementos.banner()
+      .should('be.visible')
+      .and('have.attr', 'alt', 'Banner Gastronomía')
+  })
 
-    it('Verifica que la imagen "Club social" esté visible', () => {
-        gastronomiaPage.imag1().should('be.visible');
-    });
+  it('debería mostrar tarjetas de restaurantes', () => {
+    gastronomia.elementos.tarjetasRestaurantes()
+      .should('have.length.at.least', 4)
+    
+    const restaurantes = ['Club social', 'Terra Bar y Cantina', 'El Vasco', 'Pulpería San Gervasio']
+    restaurantes.forEach(restaurante => {
+      gastronomia.obtenerTarjetaRestaurante(restaurante)
+        .should('be.visible')
+        .and('contain.text', restaurante)
+    })
+  })
 
-    it('Verifica que la imagen "Terra Bar y Cantina" esté visible', () => {
-        gastronomiaPage.imag2().should('be.visible');
-    });
+  it('debería tener un botón de WhatsApp funcional', () => {
+    gastronomia.elementos.botonWhatsapp()
+      .should('be.visible')
+      .and('have.attr', 'href')
+      .and('include', 'whatsapp.com')
+  })
 
-    it('Verifica que la imagen "El Vasco" esté visible', () => {
-        gastronomiaPage.imag3().should('be.visible');
-    });
-
-    it('Verifica que la imagen "Pulpería San Gervasio" esté visible', () => {
-        gastronomiaPage.imag4().should('be.visible');
-    });
-
-    it('Verifica el botón de WhatsApp', () => {
-        gastronomiaPage.Wha().should('be.visible');
-    });
-
-    it('Verifica el botón "Ver listado completo"', () => {
-        gastronomiaPage.verListadoCompleto().should('be.visible');
-    });
-});
+  it('debería tener un botón "Ver listado completo" funcional', () => {
+    gastronomia.elementos.botonVerListado()
+      .should('be.visible')
+      .and('not.be.disabled')
+      .click()
+    // Aquí podrías agregar una verificación adicional después de hacer clic en el botón
+    // Por ejemplo, verificar que se muestra una lista completa de restaurantes
+  })
+})
