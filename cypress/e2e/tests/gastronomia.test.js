@@ -1,46 +1,27 @@
-/// <reference types="cypress" />
+/// <reference types="cypress"/>
+import { Gastronomiapage } from "../pages/gastronomiapage.page";
 
-import Gastronomia from '..pages/gastronomiapage.page'
 
-describe('Pruebas de la Página de Gastronomía', () => {
-  const gastronomia = new Gastronomia()
+describe('gastronomia', () => {
+    const gastronomiapage = new Gastronomiapage();
 
-  beforeEach(() => {
-    gastronomia.visitar()
-    gastronomia.esperarCargaPagina()
-  })
+    beforeEach(() => {
+        cy.visit(`${Cypress.env('baseUrl')}`);
+        cy.wait(10000); // O verifica la carga del elemento específico
+    });
 
-  it('debería mostrar el banner principal', () => {
-    gastronomia.elementos.banner()
-      .should('be.visible')
-      .and('have.attr', 'alt', 'Banner Gastronomía')
-  })
+    it('Gastronomia - Vista Completa', { tags: ['t1'] }, () => {
+        gastronomiapage.Wha().should("be.visible", { timeout: 6000  }); // Verifica el elemento
+        cy.get('img[src="/imgs/gastronomia/imagen1.jpg"]').should('be.visible')
+        // hospedajePage.imag1().should('be.visible');
+        // hospedajePage.imag1().should('be.visible');
+        // hospedajePage.imag1().should('be.visible');
+        // hospedajePage.imag1().should('be.visible');
+        // hospedajePage.banner().should("be.visible");
+        // hospedajePage.texto().should("be.visible");
 
-  it('debería mostrar tarjetas de restaurantes', () => {
-    gastronomia.elementos.tarjetasRestaurantes()
-      .should('have.length.at.least', 4)
-    
-    const restaurantes = ['Club social', 'Terra Bar y Cantina', 'El Vasco', 'Pulpería San Gervasio']
-    restaurantes.forEach(restaurante => {
-      gastronomia.obtenerTarjetaRestaurante(restaurante)
-        .should('be.visible')
-        .and('contain.text', restaurante)
-    })
-  })
-
-  it('debería tener un botón de WhatsApp funcional', () => {
-    gastronomia.elementos.botonWhatsapp()
-      .should('be.visible')
-      .and('have.attr', 'href')
-      .and('include', 'whatsapp.com')
-  })
-
-  it('debería tener un botón "Ver listado completo" funcional', () => {
-    gastronomia.elementos.botonVerListado()
-      .should('be.visible')
-      .and('not.be.disabled')
-      .click()
-    // Aquí podrías agregar una verificación adicional después de hacer clic en el botón
-    // Por ejemplo, verificar que se muestra una lista completa de restaurantes
-  })
-})
+        // Verificación de un botón "Ver listado completo"
+        cy.contains('Ver listado completo').should('be.visible').click();
+        cy.url().should('include', '/listado-completo');
+    });
+});
