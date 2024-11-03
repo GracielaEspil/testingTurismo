@@ -1,17 +1,27 @@
-/// <reference types="cypress" />
-import { Hospedaje } from "./pages/Hospedaje";
+// <reference types="cypress"/> Revisa que esta ruta sea correcta
+import { Hospedaje } from "../pages/hospedajepage.page";
+
 
 describe('Hospedaje', () => {
-    const hospedaje = new Hospedaje()  // Cambié a minúscula para evitar conflicto
-    
+    const hospedajePage = new Hospedaje();
+
     beforeEach(() => {
-        cy.visit(Cypress.env('baseUrl'))
-    })
-    
-    it('Hospedaje - Vista', { tags: 't1' }, () => {
-        hospedaje.logoWa().should("be.visible")
-        hospedaje.imgCar().should("be.visible")
-        hospedaje.banner().should("be.visible")
-        hospedaje.texto().should("be.visible")
+        cy.visit(`${Cypress.env('baseUrl')}`);
+        cy.wait(5000); // O verifica la carga del elemento específico
+    });
+
+    it('Hospedaje - Vista Completa', { tags: ['t1'] }, () => {
+        hospedajePage.Wha().should("be.visible", { timeout: 4000  }); // Verifica el elemento
+        cy.get('img[src="/imgs/hospedaje/imagen1.jpg"]').should('be.visible')
+        // hospedajePage.imag1().should('be.visible');
+        // hospedajePage.imag1().should('be.visible');
+        // hospedajePage.imag1().should('be.visible');
+        // hospedajePage.imag1().should('be.visible');
+        // hospedajePage.banner().should("be.visible");
+        // hospedajePage.texto().should("be.visible");
+
+        // Verificación de un botón "Ver listado completo"
+        cy.contains('Ver listado completo').should('be.visible').click();
+        cy.url().should('include', '/listado-completo');
     });
 });
