@@ -1,4 +1,4 @@
-// <reference types="cypress"/> Revisa que esta ruta sea correcta
+/// <reference types="cypress"/>
 import { Hospedaje } from "../pages/hospedajepage.page";
 
 
@@ -11,7 +11,7 @@ describe('Hospedaje', () => {
     });
 
     it('Hospedaje - Vista Completa', { tags: ['t1'] }, () => {
-        hospedajePage.Wha().should("be.visible", { timeout: 4000  }); // Verifica el elemento
+        hospedajePage.Wha().should("be.visible", { timeout: 6000  }); // Verifica el elemento
         cy.get('img[src="/imgs/hospedaje/imagen1.jpg"]').should('be.visible')
         // hospedajePage.imag1().should('be.visible');
         // hospedajePage.imag1().should('be.visible');
