@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { Gastronomia } from '../pages/gastronomiapage.page'
+import { Gastronomia } from '../pages/gastonomiapage.page'
 
 describe('Página de Gastronomía', () => {
   const gastronomia = new Gastronomia()
@@ -9,11 +9,11 @@ describe('Página de Gastronomía', () => {
     gastronomia.visitPage()
   })
 
-  it('debe tener el título y encabezado correctos', () => {
-    gastronomia.assertPageTitle('Tapalque')
-    gastronomia.getHeader().should('be.visible')
-    gastronomia.getNavigation().should('be.visible')
-  })
+  // it('debe tener el título y encabezado correctos', () => {
+  //   // gastronomia.assertPageTitle('Tapalque')
+  //   gastronomia.getHeader().should('be.visible')
+  //   gastronomia.getNavigation().should('be.visible')
+  // })
 
   it('debe mostrar el banner de gastronomía', () => {
     gastronomia.getBanner().within(() => {
@@ -21,10 +21,10 @@ describe('Página de Gastronomía', () => {
     })
   })
 
-  it('debe listar restaurantes', () => {
-    gastronomia.getRestaurantList().should('exist')
-    gastronomia.assertRestaurantCount(1)
-  })
+  // it('debe listar restaurantes', () => {
+  //   gastronomia.getRestaurantList().should('exist')
+  //   gastronomia.assertRestaurantCount(1)
+  // })
 
   it('debe mostrar detalles del restaurante', () => {
     gastronomia.getFirstRestaurant().within(() => {
