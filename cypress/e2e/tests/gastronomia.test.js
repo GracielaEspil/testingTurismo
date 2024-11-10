@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-import { Gastronomia } from '../../pages/gastronomiapage.page'
+import { Gastronomia } from '../pages/gastronomiapage.page'
 
 describe('Página de Gastronomía', () => {
   const gastronomia = new Gastronomia()
