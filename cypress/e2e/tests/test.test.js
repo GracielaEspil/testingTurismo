@@ -1,24 +1,19 @@
 /// <reference types="cypress"/>
 
-import { Landingpage } from "../pages/landingpage.page";
+import ModalContacto from "../pages/modalContacto.page";
 
-describe('Landingpage', () => {
-    const landingpage = new Landingpage()
+
+
+describe('Modal Contacto page', () => {
+    const modalcontacto = new ModalContacto()
     beforeEach(() =>{
         cy.log(Cypress.env('baseUrl'))
         cy.visit(Cypress.env('baseUrl'), { failOnStatusCode: false });
-    })
-    it('Pagina landing page' , { tags: 't1' }, () => {
-        cy.checkingnav()
-        cy.checkingfooter()
-        cy.checkingfooterazul()
-        landingpage.logoWs().should("be.visible")
-        landingpage.imgDescubriTapalque().should("be.visible")
-        landingpage.imgAzulOndas().should("be.visible")
-        landingpage.imgTresEstrellas().should("be.visible")
-        landingpage.textNegrita().should("be.visible")
-        landingpage.texto().should("be.visible")
-        landingpage.toponimo().should("be.visible")
-        
+    })   
+        it('Pagina modal contacto' , { tags: 't1' }, () => {
+        modalcontacto.imgJovenes().should("be.visible")
+        modalcontacto.textoTitulo().should("be.visible")
+        modalcontacto.imgOnda().should("be.visible")
+        modalcontacto.parrafoContacto().should("be.visible")
     });
 });
