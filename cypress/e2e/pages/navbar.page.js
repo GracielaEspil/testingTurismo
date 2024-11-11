@@ -1,10 +1,10 @@
 export default class NavbarPage {
     logoImage(){
-        return cy.get("img[alt='Logo Turismo']") 
+        return cy.get("#logo1") 
     }
 
     acerca(){
-        return cy.get("li[class='relative w-full md:w-[140px] lg:w-full'] span[class='class-item-menu']") 
+        return cy.get("#acerca") 
     }
     
     hospedaje(){
@@ -16,7 +16,7 @@ export default class NavbarPage {
     }
 
     turismorural(){
-        return cy.get("li[class='relative w-full md:w-auto'] span[class='class-item-menu']") 
+        return cy.get("#turismo") 
     }
 
     atractivos(){
