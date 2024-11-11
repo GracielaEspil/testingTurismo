@@ -1,4 +1,4 @@
-import class Pagconstruccionpage {
+import class PagConstruccion {
      
     logoWs(){
         return cy.get(".whatsapp")
