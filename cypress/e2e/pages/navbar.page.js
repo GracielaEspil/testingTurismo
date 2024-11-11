@@ -1,6 +1,6 @@
 export default class NavbarPage {
     logoImage(){
-        return cy.get("#logo1")
+        return cy.get("img[alt='Logo Turismo']") 
     }
 
     acerca(){
