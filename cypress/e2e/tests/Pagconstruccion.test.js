@@ -1,22 +1,20 @@
-/// <reference types="cypress"/>
+/// <reference types="cypress" />
 
-// Importa la clase PagConstruccion si está en un archivo separado
-import { PagConstruccion } from '../pages/PagContruccion.page';
+import { PagConstruccion } from './../pages/PagConstruccion.page';
 
-describe('PagCostrucion', () => {
+describe('PagConstruccion', () => {
   const page = new PagConstruccion();
 
   beforeEach(() => {
-    cy.log(Cypress.env('baseUrl'))
-        cy.visit(Cypress.env('baseUrl') + '/g', { failOnStatusCode: false });
+    cy.visit(`${Cypress.env('baseUrl')}`);
+   
   });
-  it('PagCostrucion' , { tags: 't1' }, () => {
-    cy.chekingfooterazul()
-    PagConstruccion.logoWs().should("be.visible")
-    PagConstruccion.logo1().should("be.visible")
-    PagConstruccion.texto1().should("be.visible")
-    PagConstruccion.texto2().should("be.visible")
-    
-});
-})
 
+  it('PagConstruccion', { tags: 't1' }, () => {
+    cy.chekingfooterazul();
+    PagConstruccion.logoWs().should("be.visible");
+    PagConstruccion.logo1().should("be.visible");
+    PagConstruccion.texto1().should("be.visible");
+    PagConstruccion.texto2().should("be.visible");
+  });
+});
