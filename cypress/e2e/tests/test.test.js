@@ -10,6 +10,11 @@ describe('Landingpage', () => {
         
     it('landingpage', { tags: 't1' }, () => {
        landingpage.logoWs().should("be.visible") 
-       landingpage.carrouselTapalque().should("be.visible")
+       landingpage.imgDescubriTapalque().should("be.visible")
+       landingpage.imgAzulOndas().should("be.visible") 
+       landingpage.imgTresEstrellas().should("be.visible")
+       landingpage.textNegrita().should("be.visible") 
+       landingpage.texto().should("be.visible")
+       landingpage.toponimo().should("be.visible")
     });
 });
