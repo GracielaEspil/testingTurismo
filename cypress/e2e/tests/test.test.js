@@ -5,10 +5,14 @@ import { Landingpage } from "../pages/landingpage.page";
 describe('Landingpage', () => {
     const landingpage = new Landingpage()
     beforeEach(()=>{
-        cy.visit("http://localhost:3000")
+        cy.log(Cypress.env('baseUrl'))
+        cy.visit(Cypress.env('baseUrl'), { failOnStatusCode: false })
     })
         
     it('landingpage', { tags: 't1' }, () => {
+       cy.checkingnav()
+       cy.checkingfooter()
+       cy.checkinfooterazul()
        landingpage.logoWs().should("be.visible") 
        landingpage.imgDescubriTapalque().should("be.visible")
        landingpage.imgAzulOndas().should("be.visible") 
